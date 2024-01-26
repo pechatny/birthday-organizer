@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.stream.Collectors;
 
 public class ParticipantsSplitter {
+    public static final String NEW_LINE = System.getProperty("line.separator");
 
     public PreparedGreeting splitParticipants(String participants, String poem) {
         var participantList = participants.trim()
@@ -36,12 +37,12 @@ public class ParticipantsSplitter {
             StringBuilder lineBuilder = new StringBuilder();
             for (int i = forAllParticipantsLineCount; i != 0; i--) {
                 lineBuilder.append(poemIterator.next());
-                lineBuilder.append("\r\n");
+                lineBuilder.append(NEW_LINE);
             }
 
             if (extraLines > 0) {
                 lineBuilder.append(poemIterator.next());
-                lineBuilder.append("\r\n");
+                lineBuilder.append(NEW_LINE);
                 extraLines--;
             }
             poemLinesList.add(lineBuilder.toString());
